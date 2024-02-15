@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.authBlock {
+    border: 1px solid #512689;
+    border-radius: 5px;
+    padding: 20px;
+    width: 350px;
+    height: 350px;
+    max-width: 350px;
+    max-height: 350px;
+}
+
+.authBlock h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 180%;
+    text-align: center;
+}
+
+.authBlock h3 {
+    margin-bottom: 5px;
+    font-size: 120%;
+}
+
+.authBlock input {
+    border: 1px solid #512689;
+    border-radius: 5px;
+    padding: 12px 8px 12px 16px;
+    width: 92.5%;
+    font-size: 100%;
+}
+
+.authBlock .button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15%;
+}
+
+.authBlock .button button {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #512689;
+    border-radius: 5px;
+    background: #512689;
+    color: #FFFFFF;
+    font-size: 100%;
+    cursor: pointer;
+}
+
+.authBlock .button div {
+    margin-top: 5px;
+}

@@ -1,0 +1,43 @@
+.container {
+    width: 100%;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px 10px;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-left: 11.5%;
+    margin-right: 11.5%;
+}
+
+.itemContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin-right: 5%;
+    margin-left: 5%;
+    border: 1px solid #512689;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.itemContainer .secondTitle {
+    margin-top: 5px;
+}
+.itemContainer .secondTitle span:nth-child(1) {
+    margin-right: 5%;
+}
+.itemContainer img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
