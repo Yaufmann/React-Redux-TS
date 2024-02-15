@@ -28,12 +28,16 @@
     font-size: 120%;
 }
 
-.authBlock input {
+.authBlock .input {
     border: 1px solid #512689;
     border-radius: 5px;
     padding: 12px 8px 12px 16px;
     width: 92.5%;
     font-size: 100%;
+}
+
+.input.active {
+    border: 1px solid red;
 }
 
 .authBlock .button {
@@ -57,4 +61,13 @@
 
 .authBlock .button div {
     margin-top: 5px;
+}
+
+.authBlock .button div span {
+    cursor: pointer;
+    color: #512689;
+}
+
+.authBlock .button div span:hover {
+    border-bottom: 1px solid #512689;
 }

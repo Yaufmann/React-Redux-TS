@@ -8,14 +8,28 @@ const Auth = () => {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [registerForm,setRegisterForm] = useState(true);
-
     const dispatch = useAppDispatch();
+    const [error,setError] = useState(false);
+
+    const inputClasses: string[] = [cl.input]
+
+    if (error) {
+        inputClasses.push(cl.active);
+    }
+
+
 
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
        e.preventDefault()
-       const method = registerForm ? fetchRegister : fetchLogin;
-       dispatch(method({email,password}))
+       if (email.length > 6 && password.length > 6) {
+           const method = registerForm ? fetchRegister : fetchLogin;
+           dispatch(method({email,password}))
+       } else {
+           setError(true);
+           setEmail('');
+           setPassword('');
+       }
     }
 
     const click = () => {
@@ -28,17 +42,25 @@ const Auth = () => {
                 {registerForm ? <h1>Авторизация</h1> : <h1>Регистрация</h1>}
                 <h3>Электронная почта</h3>
                 <input
+                    className={inputClasses.join(' ')}
                     value={email}
                     type='text'
-                    placeholder="Введите ваш email..."
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setEmail(e.target.value)}
+                    placeholder={error ? "Введите минимум 6 символов" : "Введите ваш email..."}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{
+                        setError(false)
+                        setEmail(e.target.value)
+                    }}
                 />
                 <h3>Пароль</h3>
                 <input
+                    className={inputClasses.join(' ')}
                     value={password}
                     type='text'
-                    placeholder="Введите ваш пароль..."
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setPassword(e.target.value)}
+                    placeholder={error ? "Введите минимум 6 символов" : "Введите ваш пароль..."}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{
+                        setError(false)
+                        setPassword(e.target.value)
+                    }}
                 />
                 <div className={cl.button}>
                 <button onClick={handleClick}>{registerForm ? 'Войти' : 'Зарегистрироваться'}</button>

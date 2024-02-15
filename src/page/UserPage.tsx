@@ -1,9 +1,9 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import cl from './user.module.css';
 import {Params, useNavigate, useParams} from "react-router-dom";
 import {HOME_ROUTER, LOGIN_ROUTE} from "../utill/constants";
 import {useAppDispatch, useAppSelector} from "../hooks/hooks";
-import {fetchUserId} from "../store/slice";
+import {fetchUserId, logOut} from "../store/slice";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 
@@ -11,7 +11,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 
 const UserPage = () => {
-    const [auth,setAuth] = useState(false);
+    const auth = useAppSelector(state => state.users.token) !== ''
     const navigate = useNavigate();
     const params: Readonly<Params> = useParams();
     const user = useAppSelector(state => state.users.user);
@@ -44,12 +44,11 @@ const UserPage = () => {
     }, [dispatch]);
 
     function handleSignin() {
-        setAuth(!auth);
         navigate(LOGIN_ROUTE);
     }
 
     function handleSignup() {
-        setAuth(!auth);
+        dispatch(logOut());
         navigate(HOME_ROUTER);
     }
 
